@@ -61,10 +61,10 @@ function App() {
   }, [isTimeFrozen]);
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-sans bg-stone-50">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-sans bg-stone-50 dark:bg-stone-950 dark:text-stone-100 transition-colors duration-300">
       <div className="max-w-5xl mx-auto">
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-stone-900 tracking-tight">
+          <h1 className="text-4xl font-serif font-bold text-stone-900 dark:text-stone-100 tracking-tight">
             刑冲速查
           </h1>
         </header>
@@ -99,7 +99,7 @@ function App() {
           )}
         </main>
 
-        <footer className="mt-16 text-center text-stone-400 text-xs">
+        <footer className="mt-16 text-center text-stone-400 dark:text-stone-600 text-xs">
           <p>&copy; 刑冲速查 大道至易</p>
         </footer>
       </div>
