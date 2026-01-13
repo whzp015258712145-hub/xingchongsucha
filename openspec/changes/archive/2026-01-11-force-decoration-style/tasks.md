@@ -1,0 +1,2 @@
+- [ ] Update `RelationshipChart.tsx`: Apply inline styles to the 4 cloud decoration images. <!-- id: 0 -->
+- [ ] Verify build and visual fix. <!-- id: 1 -->

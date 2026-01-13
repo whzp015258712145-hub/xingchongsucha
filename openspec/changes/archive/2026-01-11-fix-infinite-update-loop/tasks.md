@@ -1,0 +1,2 @@
+- [ ] Update `CurrentDateDisplay.tsx`: Add logic to compare `newBazi` with `prevBazi` (ref) and only call `onDateChange` if they differ. <!-- id: 0 -->
+- [ ] Update `App.tsx`: Wrap `onDateChange` handler in `useCallback`. <!-- id: 1 -->

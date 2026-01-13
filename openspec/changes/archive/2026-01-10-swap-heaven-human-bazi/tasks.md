@@ -1,0 +1,6 @@
+- [ ] Update `App.tsx`: Add `isTimeFrozen` state to prevent `CurrentDateDisplay` from overwriting manual edits. <!-- id: 0 -->
+- [ ] Update `App.tsx`: Enhance `handlePillarChange` to support `'current'` chart type. <!-- id: 1 -->
+- [ ] Update `RelationshipChart.tsx`: Swap rendering logic. Move `currentBazi` to Heaven, `userBazi` to Human. <!-- id: 2 -->
+- [ ] Update `RelationshipChart.tsx`: Enable `isInteractive=true` for all pillars in both sections. <!-- id: 3 -->
+- [ ] Update `RelationshipChart.tsx`: Update `handleDoubleClick` check to allow `'current'`. <!-- id: 4 -->
+- [ ] Verify highlighting still works correctly after the swap. <!-- id: 5 -->

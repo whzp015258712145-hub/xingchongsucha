@@ -1,0 +1,3 @@
+- [ ] Import `xiangyun.png` in `RelationshipChart.tsx`. <!-- id: 0 -->
+- [ ] Replace `XiangYunLeft` and `XiangYunRight` SVG components with `img` elements using the imported PNG. <!-- id: 1 -->
+- [ ] Apply CSS classes to mirror the right image and constrain dimensions (e.g., `w-20`). <!-- id: 2 -->

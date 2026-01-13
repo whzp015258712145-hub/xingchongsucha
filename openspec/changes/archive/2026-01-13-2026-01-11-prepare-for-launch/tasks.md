@@ -1,0 +1,5 @@
+- [ ] Update `package.json` version and description <!-- id: 0 -->
+- [ ] Add SEO and Open Graph meta tags to `index.html` <!-- id: 1 -->
+- [ ] Add Mobile Web App meta tags to `index.html` <!-- id: 2 -->
+- [ ] Disable dragging on decorative Xiangyun images in `RelationshipChart.tsx` <!-- id: 4 -->
+- [ ] Verify build succeeds with `npm run build` <!-- id: 3 -->

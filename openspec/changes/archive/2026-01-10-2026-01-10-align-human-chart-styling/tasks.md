@@ -1,0 +1,3 @@
+- [ ] Refactor `RelationshipChart.tsx` to render Human column labels as `span` by default. <!-- id: 0 -->
+- [ ] Implement conditional rendering for the 'luck' column to allow click interaction (toggle gender) while maintaining visual consistency. <!-- id: 1 -->
+- [ ] Verify that no "boxed" styling remains on Human column labels. <!-- id: 2 -->

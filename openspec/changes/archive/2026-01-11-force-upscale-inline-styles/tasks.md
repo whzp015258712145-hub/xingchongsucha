@@ -1,0 +1,3 @@
+- [ ] Update `CurrentDateDisplay.tsx`: Apply inline `fontSize` to digits and labels. <!-- id: 0 -->
+- [ ] Update `BaziInput.tsx`: Apply inline `fontSize` and `padding` to inputs. <!-- id: 1 -->
+- [ ] Update `RelationshipChart.tsx`: Apply inline `fontSize` to headers, pillars, and list items. Apply inline `width/height` to pillar containers. <!-- id: 2 -->

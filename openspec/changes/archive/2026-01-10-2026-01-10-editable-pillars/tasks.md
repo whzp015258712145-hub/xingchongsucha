@@ -1,0 +1,6 @@
+- [ ] Extract `calculateDayun` logic from `RelationshipChart.tsx` to `utils/relationships.ts`. <!-- id: 0 -->
+- [ ] Update `compareCharts` in `utils/relationships.ts` to accept and process `dayun` parameter. <!-- id: 1 -->
+- [ ] Refactor `App.tsx` to hold `gender` and `dayun` state, using `calculateDayun` in a `useEffect`. <!-- id: 2 -->
+- [ ] Update `RelationshipChart.tsx` to accept `dayun` and `gender` as props. <!-- id: 3 -->
+- [ ] Implement `EditablePillar` logic (or inline handler) in `RelationshipChart.tsx` to handle double-click, input rendering, and saving. <!-- id: 4 -->
+- [ ] Pass `onPillarChange` from `App` to `RelationshipChart` and wire it up to state updates (User Bazi and Dayun). <!-- id: 5 -->

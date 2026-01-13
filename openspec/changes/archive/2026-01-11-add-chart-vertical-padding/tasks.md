@@ -1,0 +1,2 @@
+- [ ] Update `RelationshipChart.tsx`: Add `pt-12` to Heaven section. <!-- id: 0 -->
+- [ ] Update `RelationshipChart.tsx`: Add `pb-12` to Human section. <!-- id: 1 -->

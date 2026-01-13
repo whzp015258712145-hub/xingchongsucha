@@ -1,0 +1,4 @@
+- [ ] Update `App.tsx`: Increase layout max-width to `max-w-7xl` to fit larger content. <!-- id: 0 -->
+- [ ] Update `CurrentDateDisplay.tsx`: Scale up digits (`3.75rem`) and labels (`2rem`). <!-- id: 1 -->
+- [ ] Update `BaziInput.tsx`: Scale up inputs (`1.5rem`) and padding. <!-- id: 2 -->
+- [ ] Update `RelationshipChart.tsx`: Scale up headers (`2.5rem`), icons (`80px`), pillars (`3rem`/`8rem`), and list (`1.5rem`). <!-- id: 3 -->

@@ -1,0 +1,2 @@
+- [ ] Update `RelationshipChart.tsx`: Change `text-xl` to `text-3xl` for "天" and "人". <!-- id: 0 -->
+- [ ] Update `RelationshipChart.tsx`: Change `42px` to `64px` for decoration images. <!-- id: 1 -->

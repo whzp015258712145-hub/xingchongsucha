@@ -1,0 +1,3 @@
+- [ ] Update `CurrentDateDisplay.tsx`: Scale up digits (`text-7xl`) and labels (`text-4xl`). <!-- id: 0 -->
+- [ ] Update `BaziInput.tsx`: Scale up inputs (`text-2xl`) and labels (`text-base`). <!-- id: 1 -->
+- [ ] Update `RelationshipChart.tsx`: Scale up Headers (`text-5xl`), Icons (`96px`), Pillars (`text-7xl`), and List (`text-3xl`). <!-- id: 2 -->

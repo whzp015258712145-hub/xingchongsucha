@@ -1,0 +1,3 @@
+- [ ] Update `CurrentDateDisplay.tsx`: Set digits to `56px`, labels to `28px`. <!-- id: 0 -->
+- [ ] Update `BaziInput.tsx`: Set inputs to `22px`. <!-- id: 1 -->
+- [ ] Update `RelationshipChart.tsx`: Set Pillar text to `48px`, container to `100px`. Set List text to `24px`. <!-- id: 2 -->

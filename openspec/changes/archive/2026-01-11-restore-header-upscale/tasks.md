@@ -1,0 +1,1 @@
+- [ ] Update `RelationshipChart.tsx`: Set Heaven/Human header font size to `30px` and image width to `64px`. <!-- id: 0 -->

@@ -1,0 +1,4 @@
+- [ ] Restore `App.tsx` layout and text. <!-- id: 0 -->
+- [ ] Restore `CurrentDateDisplay.tsx` layout and text. <!-- id: 1 -->
+- [ ] Restore `BaziInput.tsx` layout and text. <!-- id: 2 -->
+- [ ] Restore `RelationshipChart.tsx` layout, sizes, and fonts to "force-chart-padding" state. <!-- id: 3 -->

@@ -1,0 +1,7 @@
+- [ ] Update `App.tsx`: Remove subtitle, increase title size (`text-5xl`), increase footer margin/size. <!-- id: 0 -->
+- [ ] Update `CurrentDateDisplay.tsx`: Remove "天运流转", increase clock font size (`text-6xl`). <!-- id: 1 -->
+- [ ] Update `BaziInput.tsx`: Remove prompt text, increase input padding (`p-4`) and font size (`text-xl`). <!-- id: 2 -->
+- [ ] Update `RelationshipChart.tsx`: Increase "Heaven/Human" font to `text-4xl`, icon width to `80px`. <!-- id: 3 -->
+- [ ] Update `RelationshipChart.tsx`: Increase Pillar container size (`w-24 h-24`) and text size (`text-5xl`). <!-- id: 4 -->
+- [ ] Update `RelationshipChart.tsx`: Increase Right Panel list item font (`text-2xl`) and padding. <!-- id: 5 -->
+- [ ] Update `RelationshipChart.tsx`: Increase vertical paddings (inline styles to `4rem`). <!-- id: 6 -->

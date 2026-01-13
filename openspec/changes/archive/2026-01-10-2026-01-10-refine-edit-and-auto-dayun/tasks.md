@@ -1,0 +1,5 @@
+- [ ] Implement `findDateFromGanZhi(year, month, day, hour)` in `src/utils/relationships.ts`. <!-- id: 0 -->
+- [ ] Update `App.tsx` to use `findDateFromGanZhi` when `userBazi` changes (and `userSolarDate` is missing), then update `dayun`. <!-- id: 1 -->
+- [ ] Refactor `RelationshipChart.tsx` handleEdit: Select text on focus. <!-- id: 2 -->
+- [ ] Refactor `RelationshipChart.tsx` handleEdit: Implement `onBlur` as "Cancel" (revert to `null` editing state without calling `onPillarChange`). <!-- id: 3 -->
+- [ ] Refactor `RelationshipChart.tsx` handleEdit: Ensure `Enter` key triggers `onPillarChange` and closes edit mode. <!-- id: 4 -->

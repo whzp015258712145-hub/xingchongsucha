@@ -1,0 +1,2 @@
+- [ ] Update `RelationshipChart.tsx`: Change `w-12` to `w-6`. <!-- id: 0 -->
+- [ ] Update `RelationshipChart.tsx`: Change `gap-6` to `gap-3` in header containers. <!-- id: 1 -->

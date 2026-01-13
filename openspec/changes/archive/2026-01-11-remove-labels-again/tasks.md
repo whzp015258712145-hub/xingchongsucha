@@ -1,0 +1,3 @@
+- [ ] Update `App.tsx`: Remove subtitle. <!-- id: 0 -->
+- [ ] Update `CurrentDateDisplay.tsx`: Remove header text. <!-- id: 1 -->
+- [ ] Update `BaziInput.tsx`: Remove prompt text. <!-- id: 2 -->
