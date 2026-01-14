@@ -86,7 +86,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
              ref={inputRef}
              type="text"
              defaultValue={ganZhiValue}
-             className="w-full h-full text-center text-3xl md:text-4xl font-serif text-stone-900 dark:text-stone-100 bg-transparent outline-none p-0 selection:bg-red-100 selection:text-red-900 dark:selection:bg-red-900 dark:selection:text-red-100"
+             className="w-full h-full text-center text-3xl md:text-4xl font-serif text-stone-900 bg-transparent outline-none p-0 selection:bg-red-100 selection:text-red-900"
              onFocus={(e) => e.target.select()}
              onBlur={handleBlur}
              onKeyDown={handleKeyDown}
@@ -106,17 +106,17 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
         }}
       >
         {/* Gan */}
-        <div className={`relative w-14 h-14 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 dark:text-stone-100 rounded-xl transition-all duration-300 ${
+        <div className={`relative w-14 h-14 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 rounded-xl transition-all duration-300 ${
           isHighlighted(chartType, col, 'gan') 
-            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white dark:bg-stone-800' 
+            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white' 
             : 'border-transparent'
         }`}>
           {gan}
         </div>
         {/* Zhi */}
-        <div className={`relative w-14 h-14 md:w-20 md:h-20 mt-4 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 dark:text-stone-100 rounded-xl transition-all duration-300 ${
+        <div className={`relative w-14 h-14 md:w-20 md:h-20 mt-4 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 rounded-xl transition-all duration-300 ${
           isHighlighted(chartType, col, 'zhi') 
-            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white dark:bg-stone-800' 
+            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white' 
             : 'border-transparent'
         }`}>
           {zhi}
@@ -126,10 +126,10 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-white/40 dark:bg-stone-900/60 backdrop-blur-sm border border-stone-200/60 dark:border-stone-800 rounded-2xl overflow-hidden mt-20 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-colors duration-300">
+    <div className="flex flex-col lg:flex-row bg-white/40 backdrop-blur-sm border border-stone-200/60 rounded-2xl overflow-hidden mt-20 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
       
       {/* LEFT PANEL: The Chart (70%) */}
-      <div className="flex-[7] p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-stone-100 dark:border-stone-800 flex flex-col">
+      <div className="flex-[7] p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-stone-100 flex flex-col">
         
         {/* Heaven Section (Current - 4 Pillars) */}
         <div className="flex flex-col items-center" style={{ paddingTop: '3rem' }}>
@@ -141,7 +141,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
               draggable={false}
               className="select-none pointer-events-none"
             />
-            <span className="font-serif font-bold text-stone-600 dark:text-stone-400 tracking-[0.2em]" style={{ fontSize: '30px' }}>天</span>
+            <span className="font-serif font-bold text-stone-600 tracking-[0.2em]" style={{ fontSize: '30px' }}>天</span>
             <img 
               src={xiangyun} 
               alt="" 
@@ -154,7 +154,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
           <div className="grid grid-cols-4 gap-6 md:gap-12 max-w-xl w-full justify-items-center">
             {HEAVEN_COLS.map(col => (
               <div key={`heaven-${col}`} className="flex flex-col items-center relative w-14 md:w-20">
-                <span className="text-[10px] text-stone-300 dark:text-stone-500 mb-4 font-serif uppercase tracking-widest">{COL_LABELS[col]}</span>
+                <span className="text-[10px] text-stone-300 mb-4 font-serif uppercase tracking-widest">{COL_LABELS[col]}</span>
                 {renderPillar('current', col, currentBazi[col as keyof BaziChart] || '', true)}
               </div>
             ))}
@@ -174,7 +174,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
               draggable={false}
               className="select-none pointer-events-none"
             />
-            <span className="font-serif font-bold text-stone-600 dark:text-stone-400 tracking-[0.2em]" style={{ fontSize: '30px' }}>人</span>
+            <span className="font-serif font-bold text-stone-600 tracking-[0.2em]" style={{ fontSize: '30px' }}>人</span>
             <img 
               src={xiangyun} 
               alt="" 
@@ -194,12 +194,12 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
                   {isLuck ? (
                     <button 
                       onClick={() => onGenderChange(gender === 'male' ? 'female' : 'male')}
-                      className="text-[10px] mb-4 font-serif uppercase tracking-widest transition-colors text-red-800 dark:text-red-400 font-bold hover:text-red-600 dark:hover:text-red-300 cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-0"
+                      className="text-[10px] mb-4 font-serif uppercase tracking-widest transition-colors text-red-800 font-bold hover:text-red-600 cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-0"
                     >
                       {label}
                     </button>
                   ) : (
-                    <span className="text-[10px] text-stone-300 dark:text-stone-500 mb-4 font-serif uppercase tracking-widest">
+                    <span className="text-[10px] text-stone-300 mb-4 font-serif uppercase tracking-widest">
                       {label}
                     </span>
                   )}
@@ -216,9 +216,9 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
       </div>
 
       {/* RIGHT PANEL: Analysis (30%) */}
-      <div className="flex-[3] bg-stone-50/30 dark:bg-stone-900/30 p-10 flex flex-col min-h-[500px]">
+      <div className="flex-[3] bg-stone-50/30 p-10 flex flex-col min-h-[500px]">
         {relationships.length === 0 ? (
-          <div className="flex-1 flex items-center justify-center text-stone-300 dark:text-stone-600 italic font-serif text-xs tracking-widest">
+          <div className="flex-1 flex items-center justify-center text-stone-300 italic font-serif text-xs tracking-widest">
             无明显刑冲合害
           </div>
         ) : (
@@ -231,12 +231,12 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
                   onClick={() => toggleRel(rel)}
                   className={`text-left py-3 px-4 rounded-xl transition-all duration-300 flex items-center gap-4 group ${
                     isActive 
-                      ? 'bg-white dark:bg-stone-800 text-red-800 dark:text-red-400 shadow-sm border border-red-100 dark:border-red-900' 
-                      : 'hover:bg-white/60 dark:hover:bg-stone-800/60 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 border border-transparent hover:border-stone-100 dark:hover:border-stone-700'
+                      ? 'bg-white text-red-800 shadow-sm border border-red-100' 
+                      : 'hover:bg-white/60 text-stone-500 hover:text-stone-800 border border-transparent hover:border-stone-100'
                   }`}
                 >
                   <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    isActive ? 'bg-red-500 dark:bg-red-600 scale-125' : 'bg-stone-200 dark:bg-stone-700 group-hover:bg-stone-400 dark:group-hover:bg-stone-500'
+                    isActive ? 'bg-red-500 scale-125' : 'bg-stone-200 group-hover:bg-stone-400'
                   }`}></div>
                   <span className={`font-serif text-xl tracking-wide ${isActive ? 'font-bold' : 'font-medium'}`}>
                     {rel.name}

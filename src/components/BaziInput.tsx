@@ -178,15 +178,15 @@ export const BaziInput = ({ onBaziChange }: BaziInputProps) => {
   };
 
   return (
-    <div className="p-6 bg-white dark:bg-stone-900 shadow-sm rounded-lg border border-stone-200 dark:border-stone-800 mt-4 transition-all">
+    <div className="p-6 bg-white shadow-sm rounded-lg border border-stone-200 mt-4 transition-all">
       <div className="grid grid-cols-4 gap-4">
          {/* Year */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400 dark:text-stone-500">年</label>
+           <label className="text-xs text-center text-stone-400">年</label>
            <input
              ref={yearRef}
              type="text"
-             className="w-full text-center border border-stone-300 dark:border-stone-700 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300 dark:placeholder-stone-600 bg-transparent dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
              value={inputs.year}
              onChange={(e) => handleChange('year', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'year', monthRef)}
@@ -196,11 +196,11 @@ export const BaziInput = ({ onBaziChange }: BaziInputProps) => {
          
          {/* Month */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400 dark:text-stone-500">月</label>
+           <label className="text-xs text-center text-stone-400">月</label>
            <input
              ref={monthRef}
              type="text"
-             className="w-full text-center border border-stone-300 dark:border-stone-700 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300 dark:placeholder-stone-600 bg-transparent dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
              value={inputs.month}
              onChange={(e) => handleChange('month', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'month', dayRef, yearRef)}
@@ -210,11 +210,11 @@ export const BaziInput = ({ onBaziChange }: BaziInputProps) => {
 
          {/* Day */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400 dark:text-stone-500">日</label>
+           <label className="text-xs text-center text-stone-400">日</label>
            <input
              ref={dayRef}
              type="text"
-             className="w-full text-center border border-stone-300 dark:border-stone-700 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300 dark:placeholder-stone-600 bg-transparent dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
              value={inputs.day}
              onChange={(e) => handleChange('day', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'day', hourRef, monthRef)}
@@ -224,11 +224,11 @@ export const BaziInput = ({ onBaziChange }: BaziInputProps) => {
 
          {/* Hour */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400 dark:text-stone-500">时</label>
+           <label className="text-xs text-center text-stone-400">时</label>
            <input
              ref={hourRef}
              type="text"
-             className="w-full text-center border border-stone-300 dark:border-stone-700 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300 dark:placeholder-stone-600 bg-transparent dark:bg-stone-800 text-stone-900 dark:text-stone-100"
+             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
              value={inputs.hour}
              onChange={(e) => handleChange('hour', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'hour', undefined, dayRef)}

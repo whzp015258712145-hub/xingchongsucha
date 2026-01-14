@@ -40,18 +40,18 @@ export const CurrentDateDisplay = ({ onDateChange }: CurrentDateDisplayProps) =>
   }, [now, onDateChange]);
 
   return (
-    <div className="text-center p-6 bg-white dark:bg-stone-900 shadow-sm rounded-lg border border-stone-200 dark:border-stone-800 transition-colors duration-300">
-      <div className="text-4xl md:text-5xl font-serif font-bold text-stone-800 dark:text-stone-100 space-x-4">
+    <div className="text-center p-6 bg-white shadow-sm rounded-lg border border-stone-200">
+      <div className="text-4xl md:text-5xl font-serif font-bold text-stone-800 space-x-4">
         <span>{bazi.year}</span>
-        <span className="text-stone-400 dark:text-stone-500 text-2xl">年</span>
+        <span className="text-stone-400 text-2xl">年</span>
         <span>{bazi.month}</span>
-        <span className="text-stone-400 dark:text-stone-500 text-2xl">月</span>
+        <span className="text-stone-400 text-2xl">月</span>
         <span>{bazi.day}</span>
-        <span className="text-stone-400 dark:text-stone-500 text-2xl">日</span>
+        <span className="text-stone-400 text-2xl">日</span>
         <span>{bazi.hour}</span>
-        <span className="text-stone-400 dark:text-stone-500 text-2xl">时</span>
+        <span className="text-stone-400 text-2xl">时</span>
       </div>
-      <div className="mt-2 text-stone-400 dark:text-stone-500 font-mono text-xs">
+      <div className="mt-2 text-stone-400 font-mono text-xs">
         {now.toLocaleString('zh-CN')}
       </div>
     </div>
