@@ -51,9 +51,17 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
   const handleEditComplete = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!editing) return;
     const value = (e.target as HTMLInputElement).value.trim();
-    // Only save if Enter is pressed (explicit commit)
-    if (value) {
-      onPillarChange(editing.chart, editing.col, value);
+    
+    // 验证输入是否为有效的干支
+    if (value && value.length === 2) {
+      const gan = value[0];
+      const zhi = value[1];
+      const validGan = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+      const validZhi = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+      
+      if (validGan.includes(gan) && validZhi.includes(zhi)) {
+        onPillarChange(editing.chart, editing.col, value);
+      }
     }
     setEditing(null);
   };
@@ -79,23 +87,6 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
     const gan = ganZhiValue?.[0] || '-';
     const zhi = ganZhiValue?.[1] || '-';
 
-    if (isEditingThis) {
-      return (
-        <div className="absolute inset-0 z-20 flex items-center justify-center bg-white/90 backdrop-blur rounded-xl">
-           <input
-             ref={inputRef}
-             type="text"
-             defaultValue={ganZhiValue}
-             className="w-full h-full text-center text-3xl md:text-4xl font-serif text-stone-900 bg-transparent outline-none p-0 selection:bg-red-100 selection:text-red-900"
-             onFocus={(e) => e.target.select()}
-             onBlur={handleBlur}
-             onKeyDown={handleKeyDown}
-             autoFocus
-           />
-        </div>
-      );
-    }
-
     return (
       <div 
         className="w-full flex flex-col items-center cursor-pointer relative"
@@ -106,30 +97,56 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
         }}
       >
         {/* Gan */}
-        <div className={`relative w-14 h-14 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 rounded-xl transition-all duration-300 ${
+        <div className={`relative w-14 h-14 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl font-serif rounded-xl transition-all duration-300 ${
           isHighlighted(chartType, col, 'gan') 
-            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white' 
+            ? 'border-2 shadow-[0_0_20px_rgba(193,122,111,0.3)] z-10' 
             : 'border-transparent'
-        }`}>
-          {gan}
+        }`} style={{ 
+          color: '#4a3f2f',
+          borderColor: isHighlighted(chartType, col, 'gan') ? '#c17a6f' : 'transparent',
+          background: isHighlighted(chartType, col, 'gan') ? '#fefdfb' : 'transparent'
+        }}>
+          {isEditingThis ? (
+            <input
+              ref={inputRef}
+              type="text"
+              defaultValue={ganZhiValue}
+              maxLength={2}
+              className="w-full h-full text-center text-3xl md:text-4xl font-serif outline-none border-none rounded-xl"
+              style={{ 
+                background: 'rgba(254, 253, 251, 0.95)',
+                color: '#4a3f2f'
+              }}
+              onFocus={(e) => e.target.select()}
+              onBlur={handleBlur}
+              onKeyDown={handleKeyDown}
+              autoFocus
+            />
+          ) : (
+            <span style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>{gan}</span>
+          )}
         </div>
         {/* Zhi */}
-        <div className={`relative w-14 h-14 md:w-20 md:h-20 mt-4 flex items-center justify-center text-3xl md:text-4xl font-serif text-stone-800 rounded-xl transition-all duration-300 ${
+        <div className={`relative w-14 h-14 md:w-20 md:h-20 mt-4 flex items-center justify-center text-3xl md:text-4xl font-serif rounded-xl transition-all duration-300 ${
           isHighlighted(chartType, col, 'zhi') 
-            ? 'border-2 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)] z-10 bg-white' 
+            ? 'border-2 shadow-[0_0_20px_rgba(193,122,111,0.3)] z-10' 
             : 'border-transparent'
-        }`}>
-          {zhi}
+        } ${isEditingThis ? 'opacity-0' : ''}`} style={{ 
+          color: '#4a3f2f',
+          borderColor: isHighlighted(chartType, col, 'zhi') ? '#c17a6f' : 'transparent',
+          background: isHighlighted(chartType, col, 'zhi') ? '#fefdfb' : 'transparent'
+        }}>
+          <span style={{ writingMode: 'vertical-rl', textOrientation: 'upright' }}>{zhi}</span>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-white/40 backdrop-blur-sm border border-stone-200/60 rounded-2xl overflow-hidden mt-20 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+    <div className="flex flex-col lg:flex-row backdrop-blur-sm rounded-2xl overflow-hidden mt-20 shadow-[0_4px_20px_rgba(107,93,71,0.08)]" style={{ background: 'rgba(250, 247, 237, 0.6)', border: '1px solid #d9cdb3' }}>
       
       {/* LEFT PANEL: The Chart (70%) */}
-      <div className="flex-[7] p-12 md:p-20 border-b lg:border-b-0 lg:border-r border-stone-100 flex flex-col">
+      <div className="flex-[7] p-12 md:p-20 border-b lg:border-b-0 lg:border-r flex flex-col" style={{ borderColor: '#d9cdb3' }}>
         
         {/* Heaven Section (Current - 4 Pillars) */}
         <div className="flex flex-col items-center" style={{ paddingTop: '3rem' }}>
@@ -141,7 +158,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
               draggable={false}
               className="select-none pointer-events-none"
             />
-            <span className="font-serif font-bold text-stone-600 tracking-[0.2em]" style={{ fontSize: '30px' }}>天</span>
+            <span className="font-serif font-bold tracking-[0.2em]" style={{ fontSize: '30px', color: '#5a4d3a' }}>天</span>
             <img 
               src={xiangyun} 
               alt="" 
@@ -154,7 +171,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
           <div className="grid grid-cols-4 gap-6 md:gap-12 max-w-xl w-full justify-items-center">
             {HEAVEN_COLS.map(col => (
               <div key={`heaven-${col}`} className="flex flex-col items-center relative w-14 md:w-20">
-                <span className="text-[10px] text-stone-300 mb-4 font-serif uppercase tracking-widest">{COL_LABELS[col]}</span>
+                <span className="text-[10px] mb-4 font-serif uppercase tracking-widest" style={{ color: '#8b7355' }}>{COL_LABELS[col]}</span>
                 {renderPillar('current', col, currentBazi[col as keyof BaziChart] || '', true)}
               </div>
             ))}
@@ -174,7 +191,7 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
               draggable={false}
               className="select-none pointer-events-none"
             />
-            <span className="font-serif font-bold text-stone-600 tracking-[0.2em]" style={{ fontSize: '30px' }}>人</span>
+            <span className="font-serif font-bold tracking-[0.2em]" style={{ fontSize: '30px', color: '#5a4d3a' }}>人</span>
             <img 
               src={xiangyun} 
               alt="" 
@@ -194,12 +211,13 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
                   {isLuck ? (
                     <button 
                       onClick={() => onGenderChange(gender === 'male' ? 'female' : 'male')}
-                      className="text-[10px] mb-4 font-serif uppercase tracking-widest transition-colors text-red-800 font-bold hover:text-red-600 cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-0"
+                      className="text-[10px] mb-4 font-serif uppercase tracking-widest transition-colors font-bold hover:text-red-600 cursor-pointer bg-transparent border-none p-0 outline-none focus:ring-0"
+                      style={{ color: '#b85a4f' }}
                     >
                       {label}
                     </button>
                   ) : (
-                    <span className="text-[10px] text-stone-300 mb-4 font-serif uppercase tracking-widest">
+                    <span className="text-[10px] mb-4 font-serif uppercase tracking-widest" style={{ color: '#8b7355' }}>
                       {label}
                     </span>
                   )}
@@ -216,9 +234,9 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
       </div>
 
       {/* RIGHT PANEL: Analysis (30%) */}
-      <div className="flex-[3] bg-stone-50/30 p-10 flex flex-col min-h-[500px]">
+      <div className="flex-[3] p-10 flex flex-col min-h-[500px]" style={{ background: 'rgba(245, 240, 225, 0.5)' }}>
         {relationships.length === 0 ? (
-          <div className="flex-1 flex items-center justify-center text-stone-300 italic font-serif text-xs tracking-widest">
+          <div className="flex-1 flex items-center justify-center italic font-serif text-xs tracking-widest" style={{ color: '#9d8b6f' }}>
             无明显刑冲合害
           </div>
         ) : (
@@ -231,13 +249,34 @@ export const RelationshipChart = ({ relationships, userBazi, currentBazi, gender
                   onClick={() => toggleRel(rel)}
                   className={`text-left py-3 px-4 rounded-xl transition-all duration-300 flex items-center gap-4 group ${
                     isActive 
-                      ? 'bg-white text-red-800 shadow-sm border border-red-100' 
-                      : 'hover:bg-white/60 text-stone-500 hover:text-stone-800 border border-transparent hover:border-stone-100'
+                      ? 'shadow-sm' 
+                      : 'border border-transparent'
                   }`}
+                  style={{
+                    background: isActive ? '#fefdfb' : 'transparent',
+                    color: isActive ? '#b85a4f' : '#6b5d47',
+                    borderColor: isActive ? '#e8dcc4' : 'transparent'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.background = 'rgba(254, 253, 251, 0.6)';
+                      e.currentTarget.style.color = '#4a3f2f';
+                      e.currentTarget.style.borderColor = '#e8dcc4';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      e.currentTarget.style.background = 'transparent';
+                      e.currentTarget.style.color = '#6b5d47';
+                      e.currentTarget.style.borderColor = 'transparent';
+                    }
+                  }}
                 >
                   <div className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    isActive ? 'bg-red-500 scale-125' : 'bg-stone-200 group-hover:bg-stone-400'
-                  }`}></div>
+                    isActive ? 'scale-125' : ''
+                  }`} style={{ 
+                    background: isActive ? '#c17a6f' : '#9d8b6f'
+                  }}></div>
                   <span className={`font-serif text-xl tracking-wide ${isActive ? 'font-bold' : 'font-medium'}`}>
                     {rel.name}
                   </span>

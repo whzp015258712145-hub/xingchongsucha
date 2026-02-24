@@ -178,61 +178,89 @@ export const BaziInput = ({ onBaziChange }: BaziInputProps) => {
   };
 
   return (
-    <div className="p-6 bg-white shadow-sm rounded-lg border border-stone-200 mt-4 transition-all">
-      <div className="grid grid-cols-4 gap-4">
+    <div className="p-5 shadow-sm rounded-lg mt-4 transition-all overflow-hidden" style={{ background: '#faf7ed', border: '1px solid #d9cdb3' }}>
+      <div className="grid grid-cols-4" style={{ gap: '8px' }}>
          {/* Year */}
-         <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400">年</label>
+         <div className="flex flex-col space-y-1 min-w-0">
+           <label className="text-xs text-center" style={{ color: '#6b5d47' }}>年</label>
            <input
              ref={yearRef}
              type="text"
-             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
+             className="w-full text-center rounded-md p-2 focus:outline-none font-serif"
+             style={{ 
+               border: '1px solid #d9cdb3', 
+               background: '#fefdfb',
+               color: '#4a3f2f'
+             }}
              value={inputs.year}
              onChange={(e) => handleChange('year', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'year', monthRef)}
              placeholder={placeholders.year}
+             onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(107, 93, 71, 0.3)'}
+             onBlur={(e) => e.target.style.boxShadow = 'none'}
            />
          </div>
          
          {/* Month */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400">月</label>
+           <label className="text-xs text-center" style={{ color: '#6b5d47' }}>月</label>
            <input
              ref={monthRef}
              type="text"
-             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
+             className="w-full text-center rounded-md p-2 focus:outline-none font-serif"
+             style={{ 
+               border: '1px solid #d9cdb3', 
+               background: '#fefdfb',
+               color: '#4a3f2f'
+             }}
              value={inputs.month}
              onChange={(e) => handleChange('month', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'month', dayRef, yearRef)}
              placeholder={placeholders.month}
+             onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(107, 93, 71, 0.3)'}
+             onBlur={(e) => e.target.style.boxShadow = 'none'}
            />
          </div>
 
          {/* Day */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400">日</label>
+           <label className="text-xs text-center" style={{ color: '#6b5d47' }}>日</label>
            <input
              ref={dayRef}
              type="text"
-             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
+             className="w-full text-center rounded-md p-2 focus:outline-none font-serif"
+             style={{ 
+               border: '1px solid #d9cdb3', 
+               background: '#fefdfb',
+               color: '#4a3f2f'
+             }}
              value={inputs.day}
              onChange={(e) => handleChange('day', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'day', hourRef, monthRef)}
              placeholder={placeholders.day}
+             onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(107, 93, 71, 0.3)'}
+             onBlur={(e) => e.target.style.boxShadow = 'none'}
            />
          </div>
 
          {/* Hour */}
          <div className="flex flex-col space-y-1">
-           <label className="text-xs text-center text-stone-400">时</label>
+           <label className="text-xs text-center" style={{ color: '#6b5d47' }}>时</label>
            <input
              ref={hourRef}
              type="text"
-             className="w-full text-center border border-stone-300 rounded-md p-2 focus:ring-2 focus:ring-stone-500 focus:outline-none font-serif placeholder-stone-300"
+             className="w-full text-center rounded-md p-2 focus:outline-none font-serif"
+             style={{ 
+               border: '1px solid #d9cdb3', 
+               background: '#fefdfb',
+               color: '#4a3f2f'
+             }}
              value={inputs.hour}
              onChange={(e) => handleChange('hour', e.target.value)}
              onKeyDown={(e) => handleKeyDown(e, 'hour', undefined, dayRef)}
              placeholder={placeholders.hour}
+             onFocus={(e) => e.target.style.boxShadow = '0 0 0 2px rgba(107, 93, 71, 0.3)'}
+             onBlur={(e) => e.target.style.boxShadow = 'none'}
            />
          </div>
       </div>

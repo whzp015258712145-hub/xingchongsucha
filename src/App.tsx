@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { CurrentDateDisplay } from './components/CurrentDateDisplay';
 import { BaziInput } from './components/BaziInput';
 import { RelationshipChart } from './components/RelationshipChart';
+import { ContactModal } from './components/ContactModal';
+import { SponsorModal } from './components/SponsorModal';
 import { BaziChart, compareCharts, Relationship, calculateDayun, findDateFromGanZhi } from './utils/relationships';
 
 function App() {
@@ -14,6 +16,10 @@ function App() {
   const [gender, setGender] = useState<'male' | 'female'>('male');
   const [dayun, setDayun] = useState<string>('');
   const [isTimeFrozen, setIsTimeFrozen] = useState(false);
+  
+  // Modal states
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [showSponsorModal, setShowSponsorModal] = useState(false);
 
   // Auto-calculate Dayun when date or gender changes
   useEffect(() => {
@@ -61,10 +67,10 @@ function App() {
   }, [isTimeFrozen]);
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-sans bg-stone-50">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 font-sans" style={{ background: 'linear-gradient(to bottom, #f5f0e1, #ebe4d1)', minHeight: '100vh' }}>
       <div className="max-w-5xl mx-auto">
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-serif font-bold text-stone-900 tracking-tight">
+          <h1 className="text-4xl font-serif font-bold tracking-tight" style={{ color: '#4a3f2f' }}>
             刑冲速查
           </h1>
         </header>
@@ -99,8 +105,39 @@ function App() {
           )}
         </main>
 
-        <footer className="mt-16 text-center text-stone-400 text-xs">
-          <p>&copy; 刑冲速查 大道至易</p>
+        <footer className="mt-16 text-center">
+          <div className="flex items-center justify-center gap-6 mb-4">
+            <button
+              onClick={() => {
+                setShowContactModal(!showContactModal);
+                setShowSponsorModal(false);
+              }}
+              className="transition-colors text-sm font-serif tracking-wide"
+              style={{ color: '#6b5d47' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#4a3f2f'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6b5d47'}
+            >
+              联系我
+            </button>
+            <span style={{ color: '#c9bda5' }}>-</span>
+            <button
+              onClick={() => {
+                setShowSponsorModal(!showSponsorModal);
+                setShowContactModal(false);
+              }}
+              className="transition-colors text-sm font-serif tracking-wide"
+              style={{ color: '#6b5d47' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#4a3f2f'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#6b5d47'}
+            >
+              赞助我
+            </button>
+          </div>
+          
+          <ContactModal isOpen={showContactModal} onClose={() => setShowContactModal(false)} />
+          <SponsorModal isOpen={showSponsorModal} onClose={() => setShowSponsorModal(false)} />
+          
+          <p className="text-xs mt-4" style={{ color: '#8b7355' }}>&copy; 刑冲速查 大道至易</p>
         </footer>
       </div>
     </div>
