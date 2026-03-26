@@ -1,1 +1,0 @@
-- [ ] Update `RelationshipChart.tsx`: Change `w-20` to `w-12` for all decoration images. <!-- id: 0 -->
